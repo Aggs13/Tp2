@@ -1,23 +1,28 @@
 import { Suma,Resta,Mult,Div } from "./funciones";
-let op:string = "1";
 
-let num1:number = 7
-let num2:number = 12
+// @ts-ignore
+const { input, close } = require("../lib/nodeImpertaivo.js");
 
-do{
+let op:string = ""
+let num1:number
+let num2:number
+
+async function main() {
+
+    do{
 console.log("Ingrese la operacion")
 console.log("1-Suma")
 console.log("2-Resta")
 console.log("3-Multiplicacion")
 console.log("4-Division")
 console.log("0-Salir")
-
+op = await input("> ")
 switch(op){
     case "1":
-        console.log("Ingrese un numero")
-        console.log("Ingrese otro numero")
-        console.log(Suma(num1,num2))
-        op = "0"
+        num1 = parseFloat(await input("ingrese un numero: "))
+        num2 = parseFloat(await input("ingrese un numero: "))
+        Suma(num1,num2)
+
     break;
 
     case "2":
@@ -35,3 +40,9 @@ switch(op){
 
 
 }while(op != "0")
+
+
+    close();
+}
+
+main();
