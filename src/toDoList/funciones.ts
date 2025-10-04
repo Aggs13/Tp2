@@ -34,7 +34,7 @@ export async function agregarTarea(){
     let titulo:string = await input("Titulo: ")
     let descripcion:string = await input("descripcion: ")
     let estado:string = await Estados()
-    let fecha: string = `${dd.toString}/${mm.toString} /${aa.toString}`
+    let fecha: string = `${dd.toString()}/${mm.toString()}/${aa.toString()}`
     let vencimiento:string = await FechaVencimiento()
     let edicion:string = "sin editar"
     let dificultad:string = await Dificultad()
@@ -112,6 +112,8 @@ export async function BuscTarea(tareas:Tarea[]) {
     console.log("Buscar tarea por -> [1]-ID | [2]-Estado | [3]-Dificultad" )
     op = await input("> ")
 
+
+    // buscar por ID
     if(op == "1"){
         id = await input("Ingrese el ID: ")
         tareas.forEach(tarea => {
@@ -121,28 +123,60 @@ export async function BuscTarea(tareas:Tarea[]) {
         });
     }
 
+
+    // buscar por estado
     if(op == "2"){
-
+        
         estado = await input("[1]-Pendiente [2]-En Proceso [3]-Terminada [4]-Cancelada -> ")
+        
+        if(estado == "1"){
+            tareas.forEach(tarea => {
+                if(tarea.estado == "Pendiente") console.log(tarea)
+            });
+        }
 
+        if(estado == "2"){
+            tareas.forEach(tarea => {
+                if(tarea.estado == "En proceso") console.log(tarea)
+            });
+        }
 
-        tareas.forEach(tarea => {
-            if(tarea.estado == "Pendiente") console.log(tarea)
-            if(tarea.estado == "En proceso") console.log(tarea)
-            if(tarea.estado == "Terminada") console.log(tarea)
-            if(tarea.estado == "Cancelada") console.log(tarea)
-            
-        });
+        if(estado == "3"){
+            tareas.forEach(tarea => {
+                if(tarea.estado == "Terminada") console.log(tarea)
+            });
+        }
+
+        if(estado == "4"){
+            tareas.forEach(tarea => {
+                if(tarea.estado == "Cancelada") console.log(tarea)
+            });
+        }
     }
 
+
+    // buscar por Dificultad
     if(op == "3"){
+    
         dificultad = await input("[1]-Facil [2]-Normal [3]-Dificil -> ")
-        tareas.forEach(tarea => {
-            if(tarea.dificultad == "Facil") console.log(tarea)
-            if(tarea.dificultad == "Normal") console.log(tarea)
-            if(tarea.dificultad == "Dificil") console.log(tarea)
-        });
-        
+
+        if(dificultad == "1"){
+            tareas.forEach(tarea => {
+                if(tarea.dificultad == "Facil") console.log(tarea)
+            });
+        }
+
+        if(dificultad == "2"){
+            tareas.forEach(tarea => {
+                if(tarea.dificultad == "Normal") console.log(tarea)
+            });
+        }
+
+        if(dificultad == "3"){
+            tareas.forEach(tarea => {
+                if(tarea.dificultad == "Dificil") console.log(tarea)
+            });
+        }
     }
 
 }
@@ -179,7 +213,7 @@ export async function editarTarea(tareas: Tarea[]) {
     editTarea.descripcion = descripcion
     editTarea.estado = estado
     editTarea.vencimiento = vencimiento
-    editTarea.edicion = `${dd.toString}/${mm.toString} /${aa.toString}`
+    editTarea.edicion = `${dd.toString()}/${mm.toString()}/${aa.toString()}`
     editTarea.dificultad = dificultad
     
     return

@@ -40,7 +40,7 @@ function agregarTarea() {
         let titulo = yield (0, nodeImperativo_1.input)("Titulo: ");
         let descripcion = yield (0, nodeImperativo_1.input)("descripcion: ");
         let estado = yield Estados();
-        let fecha = `${dd.toString}/${mm.toString} /${aa.toString}`;
+        let fecha = `${dd.toString()}/${mm.toString()}/${aa.toString()}`;
         let vencimiento = yield FechaVencimiento();
         let edicion = "sin editar";
         let dificultad = yield Dificultad();
@@ -115,6 +115,7 @@ function BuscTarea(tareas) {
         let dificultad = "";
         console.log("Buscar tarea por -> [1]-ID | [2]-Estado | [3]-Dificultad");
         op = yield (0, nodeImperativo_1.input)("> ");
+        // buscar por ID
         if (op == "1") {
             id = yield (0, nodeImperativo_1.input)("Ingrese el ID: ");
             tareas.forEach(tarea => {
@@ -123,29 +124,55 @@ function BuscTarea(tareas) {
                 }
             });
         }
+        // buscar por estado
         if (op == "2") {
             estado = yield (0, nodeImperativo_1.input)("[1]-Pendiente [2]-En Proceso [3]-Terminada [4]-Cancelada -> ");
-            tareas.forEach(tarea => {
-                if (tarea.estado == "Pendiente")
-                    console.log(tarea);
-                if (tarea.estado == "En proceso")
-                    console.log(tarea);
-                if (tarea.estado == "Terminada")
-                    console.log(tarea);
-                if (tarea.estado == "Cancelada")
-                    console.log(tarea);
-            });
+            if (estado == "1") {
+                tareas.forEach(tarea => {
+                    if (tarea.estado == "Pendiente")
+                        console.log(tarea);
+                });
+            }
+            if (estado == "2") {
+                tareas.forEach(tarea => {
+                    if (tarea.estado == "En proceso")
+                        console.log(tarea);
+                });
+            }
+            if (estado == "3") {
+                tareas.forEach(tarea => {
+                    if (tarea.estado == "Terminada")
+                        console.log(tarea);
+                });
+            }
+            if (estado == "4") {
+                tareas.forEach(tarea => {
+                    if (tarea.estado == "Cancelada")
+                        console.log(tarea);
+                });
+            }
         }
+        // buscar por Dificultad
         if (op == "3") {
             dificultad = yield (0, nodeImperativo_1.input)("[1]-Facil [2]-Normal [3]-Dificil -> ");
-            tareas.forEach(tarea => {
-                if (tarea.dificultad == "Facil")
-                    console.log(tarea);
-                if (tarea.dificultad == "Normal")
-                    console.log(tarea);
-                if (tarea.dificultad == "Dificil")
-                    console.log(tarea);
-            });
+            if (dificultad == "1") {
+                tareas.forEach(tarea => {
+                    if (tarea.dificultad == "Facil")
+                        console.log(tarea);
+                });
+            }
+            if (dificultad == "2") {
+                tareas.forEach(tarea => {
+                    if (tarea.dificultad == "Normal")
+                        console.log(tarea);
+                });
+            }
+            if (dificultad == "3") {
+                tareas.forEach(tarea => {
+                    if (tarea.dificultad == "Dificil")
+                        console.log(tarea);
+                });
+            }
         }
     });
 }
@@ -173,7 +200,7 @@ function editarTarea(tareas) {
         editTarea.descripcion = descripcion;
         editTarea.estado = estado;
         editTarea.vencimiento = vencimiento;
-        editTarea.edicion = `${dd.toString}/${mm.toString} /${aa.toString}`;
+        editTarea.edicion = `${dd.toString()}/${mm.toString()}/${aa.toString()}`;
         editTarea.dificultad = dificultad;
         return;
     });
