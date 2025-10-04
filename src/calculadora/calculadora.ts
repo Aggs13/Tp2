@@ -3,11 +3,9 @@ import { Suma,Resta,Mult,Div,Menu } from "./funciones";
 // @ts-ignore
 const { input, close } = require("../lib/nodeImperativo");
 
-
 let op:string = ""
 let num1:number
 let num2:number
-
 
 async function main() {
 
@@ -19,18 +17,13 @@ async function main() {
                 console.clear()
                 num1 = parseFloat(await input("ingrese un numero: "))
                 num2 = parseFloat(await input("ingrese un numero: "))
-                console.log("---------")
-                console.log(`${num1} + ${num2} = ${Suma(num1,num2)}`)
-                console.log("---------")
+                Suma(num1,num2)
             break;
 
             case "2":
                 console.clear()
                 num1 = parseFloat(await input("ingrese un numero: "))
-                num2 = parseFloat(await input("ingrese un numero: "))
-                console.log("---------")
-                console.log(`${num1} - ${num2} = ${ Resta(num1,num2)}`)
-                console.log("---------")
+                Resta(num1,num2)
 
             break;
             
@@ -38,30 +31,23 @@ async function main() {
                 console.clear()
                 num1 = parseFloat(await input("ingrese un numero: "))
                 num2 = parseFloat(await input("ingrese un numero: "))
-                console.log("---------")
-                console.log(`${num1} * ${num2} = ${ Mult(num1,num2)}`)
-                console.log("---------")
-
+                Mult(num1,num2)
             break;
 
             case "4":
                 console.clear()
                 num1 = parseFloat(await input("ingrese un numero: "))
                 num2 = parseFloat(await input("ingrese un numero: "))
-                console.log("---------")
-                console.log(`${num1} / ${num2} = ${ Div(num1,num2)}`)
-                console.log("---------")
+                Div(num1,num2)
 
             break;
 
             default:
                 console.clear()
                 console.log("-Ingrese un numero valido")
-
             break;
         }
     }while(op != "0")
     close();
 }
-
 main();

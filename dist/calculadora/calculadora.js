@@ -25,33 +25,24 @@ function main() {
                     console.clear();
                     num1 = parseFloat(yield input("ingrese un numero: "));
                     num2 = parseFloat(yield input("ingrese un numero: "));
-                    console.log("---------");
-                    console.log(`${num1} + ${num2} = ${(0, funciones_1.Suma)(num1, num2)}`);
-                    console.log("---------");
+                    (0, funciones_1.Suma)(num1, num2);
                     break;
                 case "2":
                     console.clear();
                     num1 = parseFloat(yield input("ingrese un numero: "));
-                    num2 = parseFloat(yield input("ingrese un numero: "));
-                    console.log("---------");
-                    console.log(`${num1} - ${num2} = ${(0, funciones_1.Resta)(num1, num2)}`);
-                    console.log("---------");
+                    (0, funciones_1.Resta)(num1, num2);
                     break;
                 case "3":
                     console.clear();
                     num1 = parseFloat(yield input("ingrese un numero: "));
                     num2 = parseFloat(yield input("ingrese un numero: "));
-                    console.log("---------");
-                    console.log(`${num1} * ${num2} = ${(0, funciones_1.Mult)(num1, num2)}`);
-                    console.log("---------");
+                    (0, funciones_1.Mult)(num1, num2);
                     break;
                 case "4":
                     console.clear();
                     num1 = parseFloat(yield input("ingrese un numero: "));
                     num2 = parseFloat(yield input("ingrese un numero: "));
-                    console.log("---------");
-                    console.log(`${num1} / ${num2} = ${(0, funciones_1.Div)(num1, num2)}`);
-                    console.log("---------");
+                    (0, funciones_1.Div)(num1, num2);
                     break;
                 default:
                     console.clear();

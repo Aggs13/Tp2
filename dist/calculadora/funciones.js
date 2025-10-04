@@ -6,16 +6,24 @@ exports.Mult = Mult;
 exports.Div = Div;
 exports.Menu = Menu;
 function Suma(num1, num2) {
-    return num1 + num2;
+    console.log("---------");
+    console.log(`${num1} + ${num2} = ${num1 + num2}`);
+    console.log("---------");
 }
 function Resta(num1, num2) {
-    return num1 - num2;
+    console.log("---------");
+    console.log(`${num1} - ${num2} = ${num1 - num2}`);
+    console.log("---------");
 }
 function Mult(num1, num2) {
-    return num1 * num2;
+    console.log("---------");
+    console.log(`${num1} * ${num2} = ${num1 * num2}`);
+    console.log("---------");
 }
 function Div(num1, num2) {
-    return num1 / num2;
+    console.log("---------");
+    console.log(`${num1} / ${num2} = ${num1 / num2}`);
+    console.log("---------");
 }
 function Menu() {
     console.log("Ingrese la operacion");
